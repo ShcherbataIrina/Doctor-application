@@ -1,0 +1,264 @@
+:root {
+--color1: #00cfd6;
+--color2: #7db9e8;
+--color3: #05b1b1;
+--color4: #52339a;
+}
+body{
+    background: #f6f6f6;
+}
+a{
+    text-decoration: none;
+    color: inherit;
+}
+section {
+    padding: 100px 0;
+}
+
+header{
+    padding: 200px 0;
+    font-family: 'Comfortaa', cursive;
+}
+header *{
+    color: #ffff;
+}
+header{
+ 
+background: var(--color1);
+background: -moz-radial-gradient(center, ellipse cover, var(--color1) 0%, var(--color2) 100%);
+background: -webkit-radial-gradient(center, ellipse cover, var(--color1) 0%, var(--color2) 100%);
+background: radial-gradient(ellipse at center, var(--color1) 0%, var(--color2) 100%);
+filter: progid:DXImageTransform.Microsoft.gradient(startColorstr= var(--color4), endColorstr=var(--color2), GradientType=1);
+}
+
+.btn-menu{
+    display: block;
+    max-width: 0 auto;
+    margin: 30px auto 30px;
+    padding: 10px 40px;
+    color: var(--bs-white);
+    background-color: var(--color1);
+}
+
+.btn-menu:hover{
+    color: var(--bs-white);
+    background-color: var(--color4);
+}
+.reg_header{
+    height: 80px;
+padding: 30px 0;
+background: var(--color1);
+}
+
+.title{
+    font-style: italic;
+    padding-left: 50px;
+}
+header ul{
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    float: right;
+    padding-right: 40px;
+}
+header ul  li{
+    float: left;
+    position: relative;
+}
+header ul li a{
+    display: block;
+    font-size: 1.2rem;
+    text-decoration: none;
+    color: #ffff;
+    padding: 20px;
+}
+
+/*
+        FORM
+*/
+
+.reg_form{
+   /* font-size: 1.2em;
+    transition: all.3s;
+    color:#52339a;
+    text-decoration: underline;
+    margin-left: 60 px;
+*/
+    font-style: italic;
+    text-align: center;
+    margin: 30 px 0;
+}
+
+.but_form {
+    display: block;
+    max-width: 0 auto;
+    padding: 5px 20px;
+    color: white;
+
+}
+.but_form:hover{
+    color: gray;
+}
+
+/*
+        Main
+*/
+.conteiner h2{
+    padding: 20px;
+    font-style: italic;
+    margin: 30 px 0;
+    margin-left: 45%;
+}
+.main-content h2{
+    margin: 30px 0;
+}
+.main-content .post{
+    margin-bottom: 3em;
+}
+.main-content .post-text{
+    background: #ffff;
+    padding: 8px;
+    border-radius: 3px;
+}
+.main-content .post .img{
+height: 80px;
+width: 300px;
+}
+
+
+
+                            /*
+                           Menu
+                            */
+.btn-schedule {
+    display: block;
+    max-width: 50%;
+    max-height: 35px;
+    margin: 30px auto 30px;
+    padding: 10px 40px;
+    color: var(--bs-white);
+    background-color: #00BFFF;
+}
+
+.btn-schedule:hover {
+    color: var(--bs-white);
+    background-color: #9932CC;
+}
+
+.btn-text-for-schedule{
+    size: 10px;
+    font-size: medium;
+    font-family: initial;
+}
+
+.form-for-specialty{
+    margin-top: 30px;
+    size: 10px;
+    font-size: medium;
+    font-style: italic;
+}
+
+.btn-for-specialty{
+    margin-top: 33px;
+}
+
+.doctor-info{
+    max-width: 80%;
+    margin-top: 30px;
+
+}
+
+
+                                                        /*
+                                                       book-session
+                                                        */
+
+.ap_h_before_form{
+font-style: italic;
+    text-align: center;
+   margin-right: 600px;
+}
+                                                    /*
+                                                       cancel-session
+                                                        */
+
+
+.but_form_for_cancel {
+    display: block;
+    max-width: 0 auto;
+    padding: 6px 12px;
+    color: white;
+
+}
+
+.but_form_for_cancel:hover {
+    color: grey;
+}
+                                                        /*
+                                                       schedule
+                                                        */
+
+
+.btn-time-sdl {
+width: 80px;
+    text-align: center;
+    text-decoration: none;
+    background-color: #007bff;
+    color: #fff;
+    border-radius: 10px;
+    padding: 5px 0;
+    margin-bottom: 5px;
+}
+
+.btn-time-sdl:hover {
+    color: var(--bs-white);
+    background-color: var(--color3);
+}
+
+        .table-container {
+            display: flex;
+            justify-content: center;
+            width: 50%;
+            align-items: center;
+            flex-wrap: wrap;
+            margin-left: 20%;
+        }
+
+        .table-column {
+            flex-basis: calc(100% / 7);
+            text-align: center;
+        }
+
+        .table-column h5 {
+            margin-top: 0;
+
+        }
+
+
+        .table-column ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        .table-column ul li {
+            margin-bottom: 10px;
+        }
+
+        .button_in_schedule {
+            margin-left: 40%;
+            display: block;
+            max-width: 0 auto;
+            padding: 6px 12px;
+            color: white;
+            background-color: var(--color1);
+            text-align: center;
+            text-decoration: none;
+            border-radius: 10px;
+
+        }
+
+        .button_in_schedule:hover {
+            color: var(--bs-white);
+            background-color: var(--color3);
+
+        }

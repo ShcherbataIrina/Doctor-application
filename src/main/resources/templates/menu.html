@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="shortcut icon" th:href="@{img/log.png}" type="image/x-icon">
+        <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+        <link rel="stylesheet" th:href="@{/css/fontello.css}">
+        <link rel="stylesheet" th:href="@{/css/style.css}">
+    <title>Лікарі</title>
+</head>
+
+<body>
+    <header class="reg_header">
+        <div class="conteiner-fluid">
+            <div class="row">
+                <div class="col-4">
+                    <h3 class="text-left text-white title">Кліника</h3>
+                </div>
+                <nav class="col-8">
+                    <ul>
+                        <li><a th:href="@{index}">Головна</a></li>
+                        <li><a th:href="@{cancel-session}">Відмінити бронювання</a></li>
+                    </ul>
+
+                </nav>
+            </div>
+        </div>
+    </header>
+    <div class="conteiner">
+        <div class="row">
+            <form class="row justify-content-center form-for-specialty" method="post" action="menu">
+                <div class="w-100"></div>
+                <div class="mb-3 col-12 col-md-8">
+                    <label for="specialty" class="form-label">Спеціальність лікаря</label>
+                    <input name="specialty" id ="specialty" type="text" class="form-control" placeholder="Терапевт" aria-label="specialty">
+                </div>
+                <div class="mb-3 col-12 col-md-3">
+                    <button type="submit" class="btn btn-primary  btn-for-specialty but_form"> Пошук </button>
+                </div>
+            </form>
+
+
+        </div>
+
+    </div>
+    <div class="conteiner">
+        <div class=" row">
+       <!--Main conteiner-->
+       
+            <div class="main-content col-md-9">
+                
+                <div class="post row" th:each="doctor : ${doctors}">
+                    <div class="img col-12 col-md-4">
+                        <img th:src="@{img/man.png}"  class="img-fluid rounded" alt="">
+                    </div>
+                    <div class="post-text col-12 col-md-8">
+                        <div>
+                            <h3 th:text="${doctor.lastName} + ' ' + ${doctor.firstName} + ' ' + ${doctor.middleName}"></h3>
+                            <p>Спеціальність: <span th:text="${doctor.specialty}"></span></p>
+                            <span>Приватна кліника ТОВ''Чарівний світ''- Товариство з обмеженою відповідальністю ''Чарівний світ''</span>
+                        </div>
+                        <div class="col">
+                            <a th:with="lastName=${doctor.lastName}" th:href="@{schedule/{lastName}(lastName=${lastName})}"
+                               class="btn btn-schedule btn-text-for-schedule btn-lg text-uppercase text-white"> Повний графік роботи лікаря </a>
+                            https://www.baeldung.com/spring-thymeleaf-request-parameters
+                        </div>
+                    </div>
+                    </tr>
+                </div>
+            </div>
+
+    <script th:src="@{/js/bootstrap.bundle.min.js}"></script>
+</body>
+
+</html>

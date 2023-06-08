@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" th:href="@{img/list.png}" type="image/x-icon">
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+    <link rel="stylesheet" th:href="@{/css/fontello.css}">
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+    <title>Регістрація</title>
+</head>
+<body>
+    <header class="reg_header">
+    <div class="conteiner-fluid">
+        <div class="row">
+            <div class="col-12">
+                <h3 class="text-left text-white title">Kліника</h3>
+    
+            </div>
+        </div>
+    </div>
+    </header>
+<div class="conteiner ">
+    <form class="row justify-content-center" method="post" action="register">
+        <h2 class="reg_form">Форма регістрації</h2>
+        <div class="mb-3 col-12 col-md-3">
+            <div class="row ">
+                <div class="mb-3 col-12 col-md-8">
+                    <label for="firstName" class="form-label">Ім'я</label>
+                    <input  name = "firstName"  id="firstName" type="text" class="form-control" placeholder="First name" aria-label="First name">
+                </div>
+                <div class="w-100"></div>
+                <div class="mb-3 col-12 col-md-8">
+                    <label for="lastName" class="form-label">Прізвище</label>
+                    <input name = "lastName" id="lastName" type="text" class="form-control" placeholder="Last name" aria-label="Last name">
+                </div>
+                <div class="w-100"></div>
+                <div class="mb-3 col-12 col-md-8">
+                    <label for="middleName" class="form-label">По батькові</label>
+                    <input name = "middleName" id="middleName" type="text" class="form-control" placeholder="Middle name" aria-label="Middle name">
+                </div>
+                <div class="w-100"></div>
+                <div class="mb-3 col-12 col-md-8">
+                    <label for="age" class="form-label">Вік</label>
+                    <input name = "age" id="age" type="text" class="form-control" placeholder="18" aria-label="age">
+                </div>
+                <div class="w-100"></div>
+                <div class="mb-3 col-12 col-md-8">
+                    <label for="address" class="form-label">Адреса</label>
+                    <input name = "address" id="address" type="text" class="form-control" placeholder="" aria-label="address">
+                </div>
+                <div class="w-100"></div>
+                <div class="mb-3 col-12 col-md-8">
+                    <label for="email" class="form-label">Email address</label>
+                    <input name = "email" type="email" class="form-control" id="email" aria-describedby="emailHelp">
+                    <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+                </div>
+                <div class="w-100"></div>
+                <div class="mb-3 col-12 col-md-8">
+                    <label for="password" class="form-label">Password</label>
+                    <input name = "password" type="password" class="form-control" id="password">
+                </div>
+                <div class="w-100"></div>
+                <div class="mb-3 col-12 col-md-8">
+                    <button type="submit" class="btn btn-primary ">Submit</button>
+                </div>
+            </div> 
+         </div>
+    </form>
+    
+</div>
+    <footer>
+
+    </footer>
+    <script th:src="@{js/bootstrap.bundle.min.js}"></script>
+</body>
+</html>

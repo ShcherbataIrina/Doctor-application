@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" th:href="@{img/list.png}" type="image/x-icon">
+  <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+  <link rel="stylesheet" th:href="@{/css/fontello.css}">
+  <link rel="stylesheet" th:href="@{/css/style.css}">
+  <title>Бронювання</title>
+</head>
+
+<body>
+<header class="reg_header">
+  <div class="conteiner-fluid">
+    <div class="row">
+      <div class="col-12">
+        <h3 class="text-left text-white title">Kліника</h3>
+
+      </div>
+    </div>
+  </div>
+</header>
+<div class="conteiner ">
+  <form class="row justify-content-center" method="post" action="book-session">
+    <h2 class="ap_h_before_form">Форма бронювання</h2>
+    <div class="mb-3 col-12 col-md-3">
+      <div class="row ">
+        <div class="w-100"></div>
+        <div class="mb-3 col-12 ">
+          <label for="email" class="form-label"> Email</label>
+          <input  name="email" id="email" type="email" class="form-control"  aria-describedby="emailHelp">
+          <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+        </div>
+        <div class="w-100"></div>
+        <div class="mb-3 col-12">
+          <label for="lastName" class="form-label">Прізвище лікаря</label>
+          <input name="lastName" id="lastName" type="text"  class="form-control" placeholder="Last name" aria-label="Last name">
+        </div>
+        <div class="w-100"></div>
+        <div class="mb-3 col-12 ">
+          <label for="date" class="form-label">Дата</label>
+          <input name="date" id="date" type="text"  class="form-control" placeholder="рррр-мм-дд" aria-label="selectedDate" >
+        </div>
+        <div class="w-100"></div>
+        <div class="mb-3 col-12 ">
+          <label for="time" class="form-label">Час</label>
+          <input name="time" id="time" type="time"  class="form-control" placeholder="чч:мм" aria-label="appointmentTime" >
+        </div>
+
+        <div class="w-100"></div>
+        <div class="mb-3 col-12 ">
+          <label for="password" class="form-label">Password</label>
+          <input  name="password" id="password" type="password" class="form-control" >
+        </div>
+        <div class="w-100"></div>
+        <div class="mb-3 col-12 ">
+         <button type="submit" class="btn btn-primary but_form"> Забронювати </button>
+        </div>
+      </div>
+    </div>
+  </form>
+
+</div>
+<footer>
+
+</footer>
+    <script th:src="@{js/bootstrap.bundle.min.js}"></script>
+</body>
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" th:href="@{img/list.png}" type="image/x-icon">
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+    <link rel="stylesheet" th:href="@{/css/fontello.css}">
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+    <title>Графік роботи лікаря</title>
+    <style>
+        .new_background_color{
+        background-color: red;
+        }
+    </style>
+</head>
+<body>
+<header class="reg_header">
+    <div class="conteiner-fluid">
+        <div class="row">
+            <div class="col-12">
+                <h3 class="text-left text-white title">Kліника</h3>
+
+            </div>
+        </div>
+    </div>
+</header>
+
+<h2 th:text="${doctor.lastName} + ' ' + ${doctor.firstName} + ' ' + ${doctor.middleName}"> </h2>
+
+<div class="container-fluid">
+<div class="table-container">
+    <div class="table-column">
+    <table>
+        <thead>
+        <tr>
+            <th></th>
+            <th th:each="date : ${dates}" th:text="${date}"></th>
+        </tr>
+        </thead>
+        <tbody>
+                <table class="table-column">
+                    <tbody >
+                        <td >
+                            <tr th:each="time  : ${times}" >
+                                <td th:each="date : ${dates}"
+                                    th:class="${session.date != null and session.time != null and session.date.equals(date) and session.time.equals(time)} ? 'new_background_color' : ''">
+                                    <span th:text="${time}" class="btn btn-time-sdl text-uppercase"></span>
+                                </td>
+                            </tr>
+                        </td>
+                    </tbody>
+                </table>
+        </tbody>
+    </table>
+    </div>
+</div>
+</div>
+
+    <button type="submit" class="btn btn-primary button_in_schedule">
+        <a th:href="@{book-session}" class=" but_form">Забронювати</a>
+    </button>
+
+<script th:src="@{/js/bootstrap.bundle.min.js}"></script>
+</body>
+</html>
+

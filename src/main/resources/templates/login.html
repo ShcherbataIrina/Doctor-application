@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" th:href="@{img/list.png}" type="image/x-icon">
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+    <link rel="stylesheet" th:href="@{/css/fontello.css}">
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+    <title>Вхід</title>
+</head>
+
+<body>
+    <header class="reg_header">
+        <div class="conteiner-fluid">
+            <div class="row">
+                <div class="col-12">
+                    <h3 class="text-left text-white title">Kліника</h3>
+
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class="conteiner ">
+        <div class="row">
+            <form class="row justify-content-center" method="post" action="login">
+                <h2 class="reg_form">Вхід</h2>
+                <div class="w-100"></div>
+                <div class="mb-3 col-12 col-md-3">
+                    <label for="email" class="form-label">Email address</label>
+                    <input  name="email" type="email" class="form-control" id="email" aria-describedby="emailHelp">
+                    <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+                </div>
+                <div class="w-100"></div>
+                <div class="mb-3 col-12 col-md-3">
+                    <label for="password" class="form-label">Password</label>
+                    <input name="password" type="password" class="form-control" id="password">
+                </div>
+                <div class="w-100"></div>
+                <div class="mb-3 col-12 col-md-3">
+                    <button type="submit" class="btn btn-primary but_form"> Вхід </button>
+                </div>
+            </form>
+        </div>
+   </div>
+    <script th:src="@{/js/bootstrap.bundle.min.js}"></script>
+</body>
+
+</html>
