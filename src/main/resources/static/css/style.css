@@ -200,7 +200,8 @@ font-style: italic;
 
 
 .btn-time-sdl {
-width: 80px;
+    width: 80px;
+    height:40px;
     text-align: center;
     text-decoration: none;
     background-color: #007bff;
@@ -211,8 +212,25 @@ width: 80px;
 }
 
 .btn-time-sdl:hover {
-    color: var(--bs-white);
-    background-color: var(--color3);
+    color: black;
+    background-color: #007bff;
+}
+
+.red_btn-time-sdl {
+    width: 80px;
+    height:40px;
+    text-align: center;
+    text-decoration: none;
+    background-color: red;
+    color: #fff;
+    border-radius: 10px;
+    padding: 5px 0;
+    margin-bottom: 5px;
+}
+
+.red_btn-time-sdl:hover {
+    color: black;
+    background-color: red;
 }
 
         .table-container {
@@ -244,6 +262,10 @@ width: 80px;
             margin-bottom: 10px;
         }
 
+     .new_background_color {
+            background-color: red!important;
+        }
+
         .button_in_schedule {
             margin-left: 40%;
             display: block;
@@ -262,3 +284,8 @@ width: 80px;
             background-color: var(--color3);
 
         }
+
+
+
+
+

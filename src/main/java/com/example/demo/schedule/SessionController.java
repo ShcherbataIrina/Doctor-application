@@ -10,11 +10,13 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import java.time.DayOfWeek;
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.time.temporal.ChronoUnit;
 import java.util.List;
+import java.util.Map;
 
 @Controller
 @RequestMapping("/")
@@ -23,26 +25,66 @@ public class SessionController {
     private final SessionsService sessionsService;
     private final DoctorRepository doctorRepository;
     private final ClientRepository clientRepository;
-
-    private final List<String> dates = List.of(
-            "2023-06-19", "2023-06-20", "2023-06-21", "2023-06-22", "2023-06-23",
-            "2023-06-26", "2023-06-27", "2023-06-28", "2023-06-29", "2023-06-30"
+    LocalDate monday = LocalDate.now().with(DayOfWeek.MONDAY);
+    private final List<LocalDate> dates = List.of(
+            monday,
+            monday.plus(1, ChronoUnit.DAYS),
+            monday.plus(2, ChronoUnit.DAYS),
+            monday.plus(3, ChronoUnit.DAYS),
+            monday.plus(4, ChronoUnit.DAYS),
+            monday.plus(5, ChronoUnit.DAYS),
+            monday.plus(6, ChronoUnit.DAYS),
+            monday.plus(7, ChronoUnit.DAYS),
+            monday.plus(8, ChronoUnit.DAYS),
+            monday.plus(9, ChronoUnit.DAYS),
+            monday.plus(10, ChronoUnit.DAYS),
+            monday.plus(11, ChronoUnit.DAYS),
+            monday.plus(12, ChronoUnit.DAYS),
+            monday.plus(13, ChronoUnit.DAYS)
     );
 
-    private final List<String> times = List.of(
-            "9:00", "9:30", "10:00", "10:30", "11:00", "11:30", "12:00",
-            "12:30", "13:00", "13:30", "14:00", "14:30", "15:00", "15:30"
+    private final List<LocalTime> SLOTS = List.of(
+            LocalTime.parse("09:00"), LocalTime.parse("09:30"), LocalTime.parse("10:00"), LocalTime.parse("10:30"),
+            LocalTime.parse("11:00"), LocalTime.parse("11:30"), LocalTime.parse("12:00"), LocalTime.parse("12:30"),
+            LocalTime.parse("13:00"), LocalTime.parse("13:30"), LocalTime.parse("14:00"), LocalTime.parse("14:30"),
+            LocalTime.parse("15:00"), LocalTime.parse("15:30")
     );
+
 
     @GetMapping("/schedule/{lastName}")
     public String getAllDoctor(Model model, @PathVariable("lastName") String lastName) {
         Doctor doctor = doctorRepository.findByLastName(lastName);
         DoctorDto doctorDto = DoctorDto.builder().lastName(lastName).build();
         List<SessionsDto> sessions = sessionsService.getAllSessionsByDoctor(doctorDto);
+      var monday = LocalDate.now().with(DayOfWeek.MONDAY);
+//      List<LocalDate> week = null;
+//      week.add(monday);
+//        for (int i = 1; i < 14; i++) {
+//            var day = monday.plus(i, ChronoUnit.DAYS);
+//            week.add(day);
+//        }
+
+      Object [][]schedule = new Object [SLOTS.size()][dates.size()];
+        for (int i = 0; i < SLOTS.size(); i++) {
+            for (int j = 0; j < dates.size(); j++) {
+                boolean isBooked = false;
+                for (SessionsDto session : sessions) {
+                    if (session.getDate().equals(dates.get(j)) && session.getTime().equals(SLOTS.get(i))) {
+                        isBooked = true;
+                        break;
+                    }
+                }
+                schedule[i][j] = Map.of(
+
+                        "slot", SLOTS.get(i),
+                        "booked", isBooked//i%2 == 0
+                );
+            }
+        }
+
         model.addAttribute("doctor", doctor);
-        model.addAttribute("sessions", sessions);
+        model.addAttribute("schedule", schedule);
         model.addAttribute("dates", dates);
-        model.addAttribute("times", times);
 
         return "schedule";
 

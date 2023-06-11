@@ -11,59 +11,73 @@
     <link rel="stylesheet" th:href="@{/css/style.css}">
     <title>Графік роботи лікаря</title>
     <style>
-        .new_background_color{
-        background-color: red;
+        .new_background_color {
+            background-color: red;
         }
     </style>
 </head>
+
 <body>
 <header class="reg_header">
     <div class="conteiner-fluid">
         <div class="row">
             <div class="col-12">
                 <h3 class="text-left text-white title">Kліника</h3>
-
             </div>
         </div>
     </div>
 </header>
 
-<h2 th:text="${doctor.lastName} + ' ' + ${doctor.firstName} + ' ' + ${doctor.middleName}"> </h2>
+<h2 th:text="${doctor.lastName} + ' ' + ${doctor.firstName} + ' ' + ${doctor.middleName}"></h2>
 
 <div class="container-fluid">
-<div class="table-container">
-    <div class="table-column">
-    <table>
-        <thead>
-        <tr>
-            <th></th>
-            <th th:each="date : ${dates}" th:text="${date}"></th>
-        </tr>
-        </thead>
-        <tbody>
+    <div class="table-container">
+        <div class="table-column">
+            <table>
+                <thead>
+                <tr>
+                    <th></th>
+                    <th th:each="date : ${dates}" th:text="${date}"></th>
+                </tr>
+                </thead>
+                <tbody>
                 <table class="table-column">
-                    <tbody >
-                        <td >
-                            <tr th:each="time  : ${times}" >
-                                <td th:each="date : ${dates}"
-                                    th:class="${session.date != null and session.time != null and session.date.equals(date) and session.time.equals(time)} ? 'new_background_color' : ''">
-                                    <span th:text="${time}" class="btn btn-time-sdl text-uppercase"></span>
-                                </td>
-                            </tr>
+                    <tbody>
+                    <tr th:each="rows  : ${schedule}">
+                        <td th:each="cell : ${rows}"
+                            th:class="${cell.booked} ? 'red_btn-time-sdl' : 'btn-time-sdl'">
+                            <span th:text="${cell.slot}" class="btn text-uppercase"></span>
                         </td>
+                    </tr>
                     </tbody>
                 </table>
-        </tbody>
-    </table>
+                </tbody>
+            </table>
+        </div>
     </div>
 </div>
-</div>
 
-    <button type="submit" class="btn btn-primary button_in_schedule">
-        <a th:href="@{book-session}" class=" but_form">Забронювати</a>
-    </button>
+<button type="submit" class="btn btn-primary button_in_schedule">
+    <a th:href="@{book-session}" class="but_form">Забронювати</a>
+</button>
 
 <script th:src="@{/js/bootstrap.bundle.min.js}"></script>
-</body>
-</html>
+<script>
+ /*       function toggleButtonColor(button) {
+            button.classList.toggle('new_background_color');
+        }
 
+        // Отримання всіх кнопок часу
+        var timeButtons = document.getElementsByClassName('btn-time-sdl');
+
+        // Додавання обробників подій для кожної кнопки часу
+        for (var i = 0; i < timeButtons.length; i++) {
+            timeButtons[i].addEventListener('click', function() {
+                toggleButtonColor(this);
+            });
+        }
+        */
+    </script>
+</body>
+
+</html>
