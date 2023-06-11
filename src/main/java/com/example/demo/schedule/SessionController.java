@@ -56,15 +56,9 @@ public class SessionController {
         Doctor doctor = doctorRepository.findByLastName(lastName);
         DoctorDto doctorDto = DoctorDto.builder().lastName(lastName).build();
         List<SessionsDto> sessions = sessionsService.getAllSessionsByDoctor(doctorDto);
-      var monday = LocalDate.now().with(DayOfWeek.MONDAY);
-//      List<LocalDate> week = null;
-//      week.add(monday);
-//        for (int i = 1; i < 14; i++) {
-//            var day = monday.plus(i, ChronoUnit.DAYS);
-//            week.add(day);
-//        }
+        var monday = LocalDate.now().with(DayOfWeek.MONDAY);
 
-      Object [][]schedule = new Object [SLOTS.size()][dates.size()];
+        Object[][] schedule = new Object[SLOTS.size()][dates.size()];
         for (int i = 0; i < SLOTS.size(); i++) {
             for (int j = 0; j < dates.size(); j++) {
                 boolean isBooked = false;
@@ -77,7 +71,7 @@ public class SessionController {
                 schedule[i][j] = Map.of(
 
                         "slot", SLOTS.get(i),
-                        "booked", isBooked//i%2 == 0
+                        "booked", isBooked
                 );
             }
         }

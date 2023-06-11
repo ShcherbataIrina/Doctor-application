@@ -13,6 +13,5 @@ import java.util.List;
 public interface SessionsRepository extends JpaRepository<Sessions, String> {
     List<Sessions> findByDoctor(Doctor doctor);
 
-    void deleteByDoctorAndClient(Doctor doctor, Client client);
     Sessions findByDoctorAndClientAndDateAndTime(Doctor doctor, Client client, LocalDate date, LocalTime time);
 }

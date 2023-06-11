@@ -1,6 +1,5 @@
 package com.example.demo.client;
 
-import com.example.demo.doctor.DoctorRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
