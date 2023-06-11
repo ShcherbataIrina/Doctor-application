@@ -10,4 +10,8 @@ public class StartController {
     public String index() {
         return "index";
     }
+    @GetMapping("/index")
+    public String showIndex() {
+        return "index";
+    }
 }
